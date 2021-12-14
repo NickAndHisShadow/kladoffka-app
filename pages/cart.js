@@ -90,7 +90,7 @@ function Cart() {
   // RETURN
 
 
-  if (isEmpty) return <p>Your cart is empty</p>
+  if (isEmpty) return <p>Ваш кошик порожній</p>
 
   return (
     <React.Fragment>

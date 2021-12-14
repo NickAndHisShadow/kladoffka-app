@@ -4,6 +4,7 @@ module.exports = {
     defaultLocale: 'uk'
   },
   images: {
-    domains: ['media.graphcms.com']
+    domains: ['media.graphcms.com'],
+    disableStaticImages: true,
   }
 }

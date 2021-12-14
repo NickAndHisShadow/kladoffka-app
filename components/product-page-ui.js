@@ -65,6 +65,7 @@ function ProductPageUI({ product }) {
             src={primaryImage.url}
             height={primaryImage.height}
             width={primaryImage.width}
+            quality={60}
             alt={product.name}
             title={product.name}
           />
