@@ -72,7 +72,7 @@ function ProductPageUI({ product }) {
         </div>
       </div>
       <div className="px-6 md:py-3 lg:w-1/2">
-        <h1 className="font-bold text-3xl md:text-6xl mb-3 text-primary leading-tight">
+        <h1 className="font-bold text-2xl md:text-5xl mb-3 text-primary leading-tight">
           {product.name}
         </h1>
         <div className="mb-6">
@@ -83,76 +83,79 @@ function ProductPageUI({ product }) {
             })}
           </p>
         </div>
-        <div className="mb-6">
-          <p className="leading-loose text-lightgray">{product.description}</p>
-        </div>
         <div className="md:flex md:flex-wrap -mx-3">
           {product.variants.length > 1 ? (
-            <div className="md:w-3/4 px-3 mb-6">
-              <label
-                className="block text-sm font-bold tracking-widest uppercase mb-2 text-slategray"
-                htmlFor="style"
-              >
-                Конфігурація
-              </label>
-              <div className="relative">
-                <select
-                  id="style"
-                  name="style"
-                  value={activeVariantId}
-                  className="block appearance-none w-full bg-gainsboro border-2 border-gainsboro focus:border-slategray px-4 py-3 pr-8 focus:outline-none focus:bg-white text-slategray focus:text-slategray rounded-lg"
-                  onChange={updateVariant}
+              <div className="md:w-3/4 px-3 mb-6">
+                <label
+                    className="block text-sm font-bold tracking-widest uppercase mb-2 text-slategray"
+                    htmlFor="style"
                 >
-                  {product.variants.map((variant) => (
-                    <option key={variant.id} value={variant.id}>
-                      {variant.name}
-                    </option>
-                  ))}
-                </select>
-                <div className="pointer-events-none absolute inset-y-0 right-0 px-2 flex items-center">
-                  <ChevronDownSmallIcon
-                    className="h-4 w-4 text-gray-400"
-                    aria-hidden="true"
-                  />
+                  Конфігурація
+                </label>
+                <div className="relative">
+                  <select
+                      id="style"
+                      name="style"
+                      value={activeVariantId}
+                      className="block appearance-none w-full bg-gainsboro border-2 border-gainsboro focus:border-slategray px-4 py-3 pr-8 focus:outline-none focus:bg-white text-slategray focus:text-slategray rounded-lg"
+                      onChange={updateVariant}
+                  >
+                    {product.variants.map((variant) => (
+                        <option key={variant.id} value={variant.id}>
+                          {variant.name}
+                        </option>
+                    ))}
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 px-2 flex items-center">
+                    <ChevronDownSmallIcon
+                        className="h-4 w-4 text-gray-400"
+                        aria-hidden="true"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
           ) : null}
           <div className="md:w-1/4 px-3 mb-6">
             <label
-              className="block text-sm font-bold tracking-widest uppercase mb-2 text-slategray"
-              htmlFor="quantity"
+                className="block text-sm font-bold tracking-widest uppercase mb-2 text-slategray"
+                htmlFor="quantity"
             >
               Кількість
             </label>
             <div className="relative">
               <select
-                id="quantity"
-                name="quantity"
-                value={variantQuantity}
-                className="block appearance-none w-full bg-gainsboro border-2 border-gainsboro focus:border-slategray px-4 py-3 pr-8 focus:outline-none focus:bg-white text-slategray focus:text-slategray rounded-lg"
-                onChange={updateQuantity}
+                  id="quantity"
+                  name="quantity"
+                  value={variantQuantity}
+                  className="block appearance-none w-full bg-gainsboro border-2 border-gainsboro focus:border-slategray px-4 py-3 pr-8 focus:outline-none focus:bg-white text-slategray focus:text-slategray rounded-lg"
+                  onChange={updateQuantity}
               >
                 {Array.from({ length: 5 }, (_, i) => {
                   const value = Number(i + 1)
 
                   return (
-                    <option key={value} value={value}>
-                      {value}
-                    </option>
+                      <option key={value} value={value}>
+                        {value}
+                      </option>
                   )
                 })}
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 px-2 flex items-center">
                 <ChevronDownSmallIcon
-                  className="h-4 w-4 text-gray-400"
-                  aria-hidden="true"
+                    className="h-4 w-4 text-gray-400"
+                    aria-hidden="true"
                 />
               </div>
             </div>
           </div>
         </div>
         <Button onClick={addToCart}>До кошику</Button>
+        <div className="mb-6">
+          <h3 className="block text-xl font-bold tracking-widest uppercase text-center mt-4 mb-2 text-slategray">
+            Опис
+          </h3>
+          <p className="leading-loose text-lightgray">{product.description}</p>
+        </div>
 
         {/*<ProductReviews product={product} />*/}
       </div>
