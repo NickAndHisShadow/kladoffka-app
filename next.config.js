@@ -1,8 +1,8 @@
 module.exports = {
-  i18n: {
-    locales: ['uk', 'en'],
-    defaultLocale: 'uk'
-  },
+  // i18n: {
+  //   locales: ['uk', 'en'],
+  //   defaultLocale: 'uk'
+  // },
   images: {
     domains: ['media.graphcms.com'],
     disableStaticImages: true,

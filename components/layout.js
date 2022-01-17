@@ -3,7 +3,7 @@ import { DefaultSeo } from 'next-seo'
 
 import { defaultSeo } from '../next-seo.config'
 import Footer from './footer'
-import Header from './header'
+import Header from './Header/header'
 
 function Layout({ children, footer, navigation }) {
     return (

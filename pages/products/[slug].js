@@ -15,20 +15,17 @@ function ProductPage({ product }) {
   )
 }
 
-export async function getStaticPaths({ locales }) {
+export async function getStaticPaths() {
   let paths = []
 
-  for (const locale of locales) {
-    const { products } = await getAllProducts({ locale })
+    const { products } = await getAllProducts()
 
     paths = [
       ...paths,
       ...products.map((product) => ({
-        params: { slug: product.slug },
-        locale
+        params: { slug: product.slug }
       }))
     ]
-  }
 
   return {
     paths,
@@ -36,10 +33,9 @@ export async function getStaticPaths({ locales }) {
   }
 }
 
-export async function getStaticProps({ locale, params }) {
-  const pageData = await getPageData({ locale })
+export async function getStaticProps({ params }) {
+  const pageData = await getPageData()
   const { product } = await getProductBySlug({
-    locale,
     slug: params.slug
   })
 

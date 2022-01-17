@@ -1,10 +1,12 @@
 import Link from 'next/link'
 import {useCart} from 'react-use-cart'
 
-import {formatCurrencyValue} from '../utils/format-currency-value'
+import styles from "./Header.module.css";
+
+import {formatCurrencyValue} from '../../utils/format-currency-value'
 
 //import {Logo} from '../public/svgs'
-import {ShoppingCartIcon} from '../public/svgs'
+import {ShoppingCartIcon} from '../../public/svgs'
 
 function Header({pages = []}) {
     const {cartTotal} = useCart()
@@ -14,13 +16,32 @@ function Header({pages = []}) {
         <header className="max-w-7xl mx-auto bg-white flex-grow flex items-center justify-between px-4 sm:px-6">
             <div className="py-6 w-full">
                 <nav className="flex items-center justify-between flex-wrap space-x-4 unselectable">
+
+                    <button className='rounded md:hidden ml-2 text-black outline-none'>
+                        <svg
+                            className='w-8 h-8'
+                            fill='none'
+                            stroke='currentColor'
+                            viewBox='0 0 24 24'
+                            xmlns='http://www.w3.org/2000/svg'
+                        >
+                            <path
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
+                                strokeWidth={2}
+                                d='M4 6h16M4 12h16M4 18h16'
+                            />
+                        </svg>
+                    </button>
+
                     <Link href="/">
-                        <a>
+                        <a className="md:block">
                             <span>
                                 Головна
                             </span>
                         </a>
                     </Link>
+
                     {pages.length ? (
                         <ul className="hidden md:mx-auto md:block md:flex-grow">
                             {pages.map((page) => (
@@ -37,6 +58,7 @@ function Header({pages = []}) {
                             ))}
                         </ul>
                     ) : null}
+
                     <div className="flex items-center">
                         <Link href="/cart">
                             <a className="flex space-x-2">
