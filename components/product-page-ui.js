@@ -65,7 +65,7 @@ function ProductPageUI({ product }) {
             src={primaryImage.url}
             height={primaryImage.height}
             width={primaryImage.width}
-            quality={60}
+            quality={45}
             alt={product.name}
             title={product.name}
           />
@@ -154,7 +154,7 @@ function ProductPageUI({ product }) {
           <h3 className="block text-xl font-bold tracking-widest uppercase text-center mt-4 mb-2 text-slategray">
             Опис
           </h3>
-          <p className="leading-loose text-lightgray">{product.description}</p>
+          <p className="leading-loose text-lightgray">{product.description.replace(/\r\n/g, '<br>')}</p>
         </div>
 
         {/*<ProductReviews product={product} />*/}

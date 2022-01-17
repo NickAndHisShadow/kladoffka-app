@@ -2,7 +2,6 @@ import * as React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useForm } from 'react-hook-form';
 import { useCart } from 'react-use-cart'
 import { sendForm, send, init } from 'emailjs-com'
 
@@ -17,7 +16,6 @@ import getPageData from '../lib/get-page-data'
 import SEO from '../components/seo'
 
 import useSubmissionState from '../hooks/use-form-submission'
-
 
 function Cart() {
   const {
@@ -44,50 +42,17 @@ function Cart() {
     updateItemQuantity(item.id, item.quantity + 1)
 
 
-  const { register, handleSubmit } = useForm();
-
 
   var templateParams = {
-    firstName: 'James',
-    lastName: 'Adams',
-    userEmail: 'ergaqerg@rfve.rvf'
+    name: 'James',
+    surname: 'Adams',
+    email: 'ergaqerg@rfve.rvf'
   };
 
-  const onSubmit = () => {
-    send(`service_orders`, 'template_k4s2jkm', templateParams, 'user_hJtii4dPwax73jzkUrCSr')
-        .then((result) => {
-              alert("Message Sent, We will get back to you shortly", result.text);
-            },
-            (error) => {
-              alert("An error occurred, Please try again", error.text);
-            });
+  const handleClick = () => {
+    console.log('Click')
   }
 
-
-//   const onSubmit = () => {
-// // try {
-// //       setSubmissionLoading()
-// //
-// //
-// //       setSubmissionSuccess()
-// //     } catch (error) {
-// //       setSubmissionError(error.info.message)
-// //     }
-// //
-// //
-//     console.log('alright')
-//
-//
-//     // emailjs.sendForm(`gmail`, process.env.TEMPLATE_ID, data, process.env.USER_ID)
-//     //     .then((result) => {
-//     //           alert("Message Sent, We will get back to you shortly", result.text);
-//     //         },
-//     //         (error) => {
-//     //           alert("An error occurred, Please try again", error.text);
-//     //         });
-//   }
-
-  // RETURN
 
 
   if (isEmpty) return <p>Ваш кошик порожній</p>
@@ -165,34 +130,8 @@ function Cart() {
 
       <div className="mt-3 md:mt-6 py-3 md:py-6 border-t-2 border-gray-50">
 
-          <div className="flex flex-col items-start mb-3">
-            {/*<form onSubmit={handleSubmit(onSubmit)}>*/}
-            {/*  <input type="text" placeholder="Ім'я" {...register("name", {required: true, maxLength: 40})} />*/}
-            {/*  /!*<input type="text" placeholder="Прізвище" {...register("surname", {required: true, maxLength: 40})} />*!/*/}
-            {/*  /!*<input type="email" placeholder="Email" {...register("email", {pattern: /^\S+@\S+$/i})} />*!/*/}
-            {/*  /!*<input type="tel" placeholder="Телефон" {...register("phone", {required: true, maxLength: 12})} />*!/*/}
-            {/*  /!*<select {...register("ship", { required: true })}>*!/*/}
-            {/*  /!*  <option value="НоваПошта">НоваПошта</option>*!/*/}
-            {/*  /!*  <option value="Justin">Justin</option>*!/*/}
-            {/*  /!*  <option value="УкрПошта">УкрПошта</option>*!/*/}
-            {/*  /!*  <option value="Самовивіз">Самовивіз</option>*!/*/}
-            {/*  /!*</select>*!/*/}
-            {/*  /!*<select {...register("pay", { required: true })}>*!/*/}
-            {/*  /!*  <option value="Переказ на карту">Переказ на карту</option>*!/*/}
-            {/*  /!*  <option value="Наложний платіж">Наложний платіж</option>*!/*/}
-            {/*  /!*  <option value="Готівкою(м. Харків)">Готівкою(м. Харків)</option>*!/*/}
-            {/*  /!*</select>*!/*/}
-            {/*  <input type="submit" />*/}
-            {/*</form>*/}
+        {/*FORM */}
 
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <input {...register("firstName")} placeholder="First name" />
-              <input {...register("lastName")} placeholder="Last name" />
-              <input type="email" placeholder="Email" {...register("email", {pattern: /^\S+@\S+$/i})} />
-              <input type="submit" />
-            </form>
-
-          </div>
           <div className="flex flex-col items-end mb-3">
             <span className="text-gray-700">До сплати без доставки</span>
             <span className="text-xl font-bold text-indigo-600">
@@ -203,9 +142,9 @@ function Cart() {
             </span>
           </div>
 
-          {/*<Button onClick={handleClick} disabled={submissionLoading}>*/}
-          {/*  Далі*/}
-          {/*</Button>*/}
+          <Button onClick={handleClick} disabled={submissionLoading}>
+            Далі
+          </Button>
 
       </div>
     </React.Fragment>
