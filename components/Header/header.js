@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import {useCart} from 'react-use-cart'
 
-import styles from "./Header.module.css";
-
 import {formatCurrencyValue} from '../../utils/format-currency-value'
 
 //import {Logo} from '../public/svgs'
@@ -15,9 +13,9 @@ function Header({pages = []}) {
     return (
         <header className="max-w-7xl mx-auto bg-white flex-grow flex items-center justify-between px-4 sm:px-6">
             <div className="py-6 w-full">
-                <nav className="flex items-center justify-between flex-wrap space-x-4 unselectable">
+                <nav className="flex items-center justify-center flex-wrap unselectable">
 
-                    <button className='rounded md:hidden ml-2 text-black outline-none'>
+                    <button className="md:hidden mx-8 text-black outline-none">
                         <svg
                             className='w-8 h-8'
                             fill='none'
@@ -35,7 +33,7 @@ function Header({pages = []}) {
                     </button>
 
                     <Link href="/">
-                        <a className="md:block">
+                        <a className="hidden px-3 md:block">
                             <span>
                                 Головна
                             </span>
@@ -43,7 +41,7 @@ function Header({pages = []}) {
                     </Link>
 
                     {pages.length ? (
-                        <ul className="hidden md:mx-auto md:block md:flex-grow">
+                        <ul className="hidden md:block md:flex-grow">
                             {pages.map((page) => (
                                 <li
                                     key={page.id}
@@ -60,8 +58,13 @@ function Header({pages = []}) {
                     ) : null}
 
                     <div className="flex items-center">
-                        <Link href="/cart">
-                            <a className="flex space-x-2">
+                        <Link href="tel:0674964002">
+                            <a className="flex border-2 border-green-600 rounded-2xl py-2 px-3 font-semibold text-green-600 transition-colors hover:bg-green-600 hover:text-white">
+                                Зателефонувати
+                            </a>
+                        </Link>
+                        <Link href="/cart/">
+                            <a className="flex space-x-2 mx-2.5">
                                 <ShoppingCartIcon
                                     className="h-6 w-6 text-gray-400"
                                     aria-hidden="true"

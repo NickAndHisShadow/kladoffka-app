@@ -2,12 +2,12 @@ import SEO from "../components/seo";
 import { Fragment } from "react";
 import getPageData from "../lib/get-page-data";
 
-const DeliveryPage = () => {
+const ReturnPage = () => {
     return (
         <Fragment>
-            <SEO title="Delivery" />
+            <SEO title="Return" />
             <div>
-                delivery page
+                contact page
             </div>
         </Fragment>
     )
@@ -23,4 +23,4 @@ export async function getStaticProps() {
     }
 }
 
-export default DeliveryPage
+export default ReturnPage

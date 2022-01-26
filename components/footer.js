@@ -1,10 +1,7 @@
-import { useRouter } from 'next/router'
 import Link from 'next/link'
 
 function Footer({ categories = [], collections = [] }) {
-    const router = useRouter()
-
-    const currentYear = new Date().getUTCFullYear()
+const currentYear = new Date().getUTCFullYear()
 
     return (
         <footer className="bg-white" aria-labelledby="footerHeading">
@@ -74,12 +71,21 @@ function Footer({ categories = [], collections = [] }) {
                                                 </a>
                                             </Link>
                                         </li>
-                                        <li key='vozvrat'>
+                                        <li key='return'>
                                             <Link
-                                                href={`/delivery/`}
+                                                href={`/return/`}
                                             >
                                                 <a className="text-base text-gray-500 hover:text-gray-900">
                                                     Повернення
+                                                </a>
+                                            </Link>
+                                        </li>
+                                        <li key='contact'>
+                                            <Link
+                                                href={`/contact/`}
+                                            >
+                                                <a className="text-base text-gray-500 hover:text-gray-900">
+                                                    Контакты
                                                 </a>
                                             </Link>
                                         </li>

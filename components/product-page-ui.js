@@ -6,6 +6,7 @@ import { useCart } from 'react-use-cart'
 import Button from './ui/button'
 import { ChevronDownSmallIcon } from '../public/svgs'
 import { formatCurrencyValue } from '../utils/format-currency-value'
+import Link from "next/link";
 // import ProductReviews from '../components/product-reviews'
 
 function ProductPageUI({ product }) {
@@ -150,11 +151,17 @@ function ProductPageUI({ product }) {
           </div>
         </div>
         <Button onClick={addToCart}>До кошику</Button>
+        <p className="my-3">Або замовити по телефону</p>
+        <Link href="tel:0674964002">
+          <Button className="flex border-2 border-green-600 rounded-lg py-2 px-3 font-semibold text-green-600 transition-colors hover:bg-green-600 hover:text-white">
+            Зателефонувати
+          </Button>
+        </Link>
         <div className="mb-6">
           <h3 className="block text-xl font-bold tracking-widest uppercase text-center mt-4 mb-2 text-slategray">
             Опис
           </h3>
-          <p className="leading-loose text-lightgray">{product.description.replace(/\r\n/g, '<br>')}</p>
+          <p className="leading-loose text-lightgray">{product.description}</p>
         </div>
 
         {/*<ProductReviews product={product} />*/}

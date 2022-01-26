@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { Fragment } from "react";
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -58,7 +58,7 @@ function Cart() {
   if (isEmpty) return <p>Ваш кошик порожній</p>
 
   return (
-    <React.Fragment>
+    <Fragment>
       <SEO title="Cart" />
       {items.map((item) => {
         return (
@@ -147,12 +147,12 @@ function Cart() {
           </Button>
 
       </div>
-    </React.Fragment>
+    </Fragment>
   )
 }
 
-export async function getStaticProps({ locale }) {
-  const pageData = await getPageData({ locale })
+export async function getStaticProps() {
+  const pageData = await getPageData()
 
   return {
     props: {
