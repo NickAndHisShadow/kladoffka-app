@@ -11,11 +11,11 @@ function Header({pages = []}) {
     const activeCurrency = {code: 'UAH'}
 
     return (
-        <header className="max-w-7xl mx-auto bg-white flex-grow flex items-center justify-between px-4 sm:px-6">
+        <header className="max-w-7xl mx-auto bg-white items-center justify-between px-4 sm:px-6">
             <div className="py-6 w-full">
-                <nav className="flex items-center justify-center flex-wrap unselectable">
+                <nav className="container flex flex-wrap justify-between items-center mx-auto unselectable">
 
-                    <button className="md:hidden mx-8 text-black outline-none">
+                    <button className="md:hidden mr-8 text-black outline-none">
                         <svg
                             className='w-8 h-8'
                             fill='none'
@@ -33,7 +33,7 @@ function Header({pages = []}) {
                     </button>
 
                     <Link href="/">
-                        <a className="hidden px-3 md:block">
+                        <a className="hidden md:block">
                             <span>
                                 Головна
                             </span>
@@ -56,15 +56,14 @@ function Header({pages = []}) {
                             ))}
                         </ul>
                     ) : null}
-
+                    <Link href="tel:0674964002">
+                        <a className="flex border-2 border-green-600 rounded-2xl py-2 px-3 font-semibold text-green-600 transition-colors lg:mr-6 hover:bg-green-600 hover:text-white">
+                            Зателефонувати
+                        </a>
+                    </Link>
                     <div className="flex items-center">
-                        <Link href="tel:0674964002">
-                            <a className="flex border-2 border-green-600 rounded-2xl py-2 px-3 font-semibold text-green-600 transition-colors hover:bg-green-600 hover:text-white">
-                                Зателефонувати
-                            </a>
-                        </Link>
                         <Link href="/cart/">
-                            <a className="flex space-x-2 mx-2.5">
+                            <a className="flex space-x-2">
                                 <ShoppingCartIcon
                                     className="h-6 w-6 text-gray-400"
                                     aria-hidden="true"
