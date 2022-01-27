@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { Fragment } from 'react'
 
 import getAllCollections from '../../lib/get-all-collections'
 import getCollectionBySlug from '../../lib/get-collection-slug'
@@ -8,10 +8,10 @@ import SEO from '../../components/seo'
 
 function CollectionPage({ collection }) {
   return (
-    <React.Fragment>
+    <Fragment>
       <SEO title={collection.name} {...collection} />
       <ProductGrid products={collection.products} />
-    </React.Fragment>
+    </Fragment>
   )
 }
 
