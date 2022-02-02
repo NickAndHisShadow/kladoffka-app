@@ -20,7 +20,7 @@ function ProductPageUI({ product }) {
             src={primaryImage.url}
             height={primaryImage.height/2}
             width={primaryImage.width/2}
-            quality={60}
+            quality={70}
             alt={product.name}
             title={product.name}
           />
