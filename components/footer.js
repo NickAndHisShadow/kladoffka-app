@@ -11,7 +11,7 @@ const currentYear = new Date().getUTCFullYear()
             <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
                 <div className="pb-8 xl:grid xl:grid-cols-5 xl:gap-8">
                     <div className="grid grid-cols-2 gap-8 xl:col-span-4">
-                        <div className="space-y-12 md:grid md:grid-cols-3 md:gap-8 md:space-y-0">
+                        <div className="space-y-12 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
                             {categories.length ? (
                                 <div>
                                     <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
@@ -56,45 +56,9 @@ const currentYear = new Date().getUTCFullYear()
                                     </ul>
                                 </div>
                             ) : null}
-
-                                <div>
-                                    <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                                        Інформація
-                                    </h3>
-                                    <ul className="mt-4 space-y-4">
-                                        <li key='delivery'>
-                                            <Link
-                                                href={`/delivery/`}
-                                            >
-                                                <a className="text-base text-gray-500 hover:text-gray-900">
-                                                    Доставка
-                                                </a>
-                                            </Link>
-                                        </li>
-                                        <li key='return'>
-                                            <Link
-                                                href={`/return/`}
-                                            >
-                                                <a className="text-base text-gray-500 hover:text-gray-900">
-                                                    Повернення
-                                                </a>
-                                            </Link>
-                                        </li>
-                                        <li key='contact'>
-                                            <Link
-                                                href={`/contact/`}
-                                            >
-                                                <a className="text-base text-gray-500 hover:text-gray-900">
-                                                    Контакти
-                                                </a>
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                </div>
                         </div>
                     </div>
                     <div className="mt-12 xl:mt-0">
-
                     </div>
                 </div>
                 <div className="mt-8 border-t border-gray-200 pt-8 md:flex md:items-center md:justify-between">

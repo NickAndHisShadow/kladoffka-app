@@ -1,7 +1,5 @@
 import * as React from 'react'
-import { useRouter } from 'next/router'
 import Image from 'next/image'
-import { useCart } from 'react-use-cart'
 
 import { ChevronDownSmallIcon } from '../public/svgs'
 import { formatCurrencyValue } from '../utils/format-currency-value'
@@ -11,38 +9,9 @@ import {CallButton} from "./ui/callButton";
 
 function ProductPageUI({ product }) {
   console.log(product.description)
-  const { addItem } = useCart()
-  const router = useRouter()
   const activeCurrency = {code: 'UAH'}
-  const [variantQuantity, setVariantQuantity] = React.useState(1)
-  const updateQuantity = (event) => setVariantQuantity(Number(event.target.value))
 
   const [primaryImage] = product.images
-
-  const addToCart = () => {
-    const itemMetadata = router.locales.reduce(
-      (acc, locale) => ({
-        ...acc,
-        [locale]: {
-          ...product.localizations.find(
-            (localization) => localization.locale === locale
-          )
-        }
-      }),
-      {}
-    )
-
-    addItem(
-      {
-        id: activeVariantId,
-        productId: product.id,
-        image: product.images[0],
-        price: product.price,
-        ...itemMetadata
-      },
-      variantQuantity
-    )
-  }
 
   return (
     <div className="lg:flex -mx-6">
@@ -59,7 +28,7 @@ function ProductPageUI({ product }) {
         </div>
       </div>
       <div className="px-6 md:py-3 lg:w-1/2">
-        <h1 className="font-bold text-2xl md:text-5xl mb-3 text-primary leading-tight">
+        <h1 className="font-bold text-xl md:text-5xl mb-3 text-primary leading-tight">
           {product.name}
         </h1>
         <div className="mb-6">
@@ -102,39 +71,6 @@ function ProductPageUI({ product }) {
                 </div>
               </div>
           ) : null}
-          <div className="md:w-1/4 px-3 mb-6">
-            <label
-                className="block text-sm font-bold tracking-widest uppercase mb-2 text-slategray"
-                htmlFor="quantity"
-            >
-              Кількість
-            </label>
-            <div className="relative">
-              <select
-                  id="quantity"
-                  name="quantity"
-                  value={variantQuantity}
-                  className="block appearance-none w-full bg-gainsboro border-2 border-gainsboro focus:border-slategray px-4 py-3 pr-8 focus:outline-none focus:bg-white text-slategray focus:text-slategray rounded-lg"
-                  onChange={updateQuantity}
-              >
-                {Array.from({ length: 5 }, (_, i) => {
-                  const value = Number(i + 1)
-
-                  return (
-                      <option key={value} value={value}>
-                        {value}
-                      </option>
-                  )
-                })}
-              </select>
-              <div className="pointer-events-none absolute inset-y-0 right-0 px-2 flex items-center">
-                <ChevronDownSmallIcon
-                    className="h-4 w-4 text-gray-400"
-                    aria-hidden="true"
-                />
-              </div>
-            </div>
-          </div>
         </div>
         <p className="my-1.5">Замовити по телефону</p>
         <Link href="tel:0674964002">
