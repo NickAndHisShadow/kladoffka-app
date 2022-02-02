@@ -1,15 +1,8 @@
 import Link from 'next/link'
-import {useCart} from 'react-use-cart'
-import {formatCurrencyValue} from '../utils/format-currency-value'
 import { useState } from "react";
-
-import {ShoppingCartIcon} from '../public/svgs'
 import {CallButton} from "./ui/callButton";
 
 function Header({pages = []}) {
-    const {cartTotal} = useCart()
-    const activeCurrency = {code: 'UAH'}
-
     const [ activeNav, setActiveNav] = useState(true)
     const handleClick = () => {
         setActiveNav(!activeNav)
@@ -63,21 +56,6 @@ function Header({pages = []}) {
                             <CallButton/>
                         </Link>
                     </div>
-
-                    <Link href="/cart/">
-                        <a className="flex space-x-2">
-                            <ShoppingCartIcon
-                                className="h-6 w-6 text-gray-400"
-                                aria-hidden="true"
-                            />
-                            <span className="text-gray-900">
-                  {formatCurrencyValue({
-                      currency: activeCurrency,
-                      value: cartTotal
-                  })}
-                </span>
-                        </a>
-                    </Link>
 
                 </nav>
         </header>
