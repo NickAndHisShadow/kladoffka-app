@@ -1,15 +1,14 @@
 import SEO from "../components/seo";
-import { Fragment } from "react";
 import getPageData from "../lib/get-page-data";
 
 const ReturnPage = () => {
     return (
-        <Fragment>
+        <>
             <SEO title="Return" />
             <div>
                 return page
             </div>
-        </Fragment>
+        </>
     )
 }
 

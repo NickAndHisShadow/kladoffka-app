@@ -1,4 +1,3 @@
-import * as React from 'react'
 import useSWR from 'swr'
 import cc from 'classcat'
 
@@ -27,7 +26,7 @@ function ProductReviews({ product }) {
           <span className="font-medium text-gray-900">
             Reviews{' '}
             {data && (
-              <React.Fragment>({data.reviews.aggregate.count})</React.Fragment>
+              <>({data.reviews.aggregate.count})</>
             )}
           </span>
           <span className="ml-6 h-7 flex items-center">

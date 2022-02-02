@@ -6,30 +6,32 @@ import { useCart } from 'react-use-cart'
 import Button from './ui/button'
 import { ChevronDownSmallIcon } from '../public/svgs'
 import { formatCurrencyValue } from '../utils/format-currency-value'
+import Markdown from 'markdown-to-jsx';
 import Link from "next/link";
+import {CallButton} from "./ui/callButton";
 // import ProductReviews from '../components/product-reviews'
 
 function ProductPageUI({ product }) {
+  console.log(product.description)
   const { addItem } = useCart()
   const router = useRouter()
   const activeCurrency = {code: 'UAH'}
   const [variantQuantity, setVariantQuantity] = React.useState(1)
-  const [activeVariantId, setActiveVariantId] = React.useState(
-    router.query.variantId || product.variants[0].id
-  )
+  // const [activeVariantId, setActiveVariantId] = React.useState(
+  //   router.query.variantId || product.variants[0].id
+  // )
 
-  React.useEffect(() => {
-    const url = `/products/${product.slug}?variant=${activeVariantId}`
+  // React.useEffect(() => {
+  //   const url = `/products/${product.slug}?variant=${activeVariantId}`
+  //
+  //   router.replace(url, url, { shallow: true })
+  // }, [activeVariantId])
 
-    router.replace(url, url, { shallow: true })
-  }, [activeVariantId])
-
-  const activeVariant = product.variants.find(
-    (variant) => variant.id === activeVariantId
-  )
-  const updateQuantity = (event) =>
-    setVariantQuantity(Number(event.target.value))
-  const updateVariant = (event) => setActiveVariantId(event.target.value)
+  // const activeVariant = product.variants.find(
+  //   (variant) => variant.id === activeVariantId
+  // )
+  const updateQuantity = (event) => setVariantQuantity(Number(event.target.value))
+  // const updateVariant = (event) => setActiveVariantId(event.target.value)
 
   const [primaryImage] = product.images
 
@@ -153,15 +155,13 @@ function ProductPageUI({ product }) {
         <Button onClick={addToCart}>До кошику</Button>
         <p className="my-3">Або замовити по телефону</p>
         <Link href="tel:0674964002">
-          <Button className="flex border-2 border-green-600 rounded-lg py-2 px-3 font-semibold text-green-600 transition-colors hover:bg-green-600 hover:text-white">
-            Зателефонувати
-          </Button>
+          <CallButton/>
         </Link>
         <div className="mb-6">
           <h3 className="block text-xl font-bold tracking-widest uppercase text-center mt-4 mb-2 text-slategray">
             Опис
           </h3>
-          <p className="leading-loose text-lightgray">{product.description}</p>
+          <Markdown className="leading-loose text-lightgray">{product.description.markdown}</Markdown>
         </div>
 
         {/*<ProductReviews product={product} />*/}

@@ -1,5 +1,3 @@
-import { Fragment } from 'react'
-
 import getAllCollections from '../../lib/get-all-collections'
 import getCollectionBySlug from '../../lib/get-collection-slug'
 import getPageData from '../../lib/get-page-data'
@@ -8,10 +6,10 @@ import SEO from '../../components/seo'
 
 function CollectionPage({ collection }) {
   return (
-    <Fragment>
+    <>
       <SEO title={collection.name} {...collection} />
       <ProductGrid products={collection.products} />
-    </Fragment>
+    </>
   )
 }
 

@@ -8,10 +8,10 @@ import SEO from '../../components/seo'
 
 function CategoryPage({ category }) {
   return (
-    <React.Fragment>
+    <>
       <SEO title={category.name} {...category} />
       <ProductGrid products={category.products} />
-    </React.Fragment>
+    </>
   )
 }
 
