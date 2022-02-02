@@ -85,7 +85,7 @@ const currentYear = new Date().getUTCFullYear()
                                                 href={`/contact/`}
                                             >
                                                 <a className="text-base text-gray-500 hover:text-gray-900">
-                                                    Контакты
+                                                    Контакти
                                                 </a>
                                             </Link>
                                         </li>

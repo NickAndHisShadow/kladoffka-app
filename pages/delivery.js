@@ -1,15 +1,14 @@
 import SEO from "../components/seo";
-import { Fragment } from "react";
 import getPageData from "../lib/get-page-data";
 
 const DeliveryPage = () => {
     return (
-        <Fragment>
+        <>
             <SEO title="Delivery" />
             <div>
                 delivery page
             </div>
-        </Fragment>
+        </>
     )
 }
 

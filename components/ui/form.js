@@ -130,7 +130,7 @@ function FormInput(props) {
   const { errors, register } = useFormContext()
 
   return (
-    <React.Fragment>
+    <>
       <Input ref={register} {...props}>
         {errors?.[props.field] ? (
           <p className="mt-2 text-red-700 text-sm">
@@ -138,7 +138,7 @@ function FormInput(props) {
           </p>
         ) : null}
       </Input>
-    </React.Fragment>
+    </>
   )
 }
 
@@ -160,7 +160,7 @@ function FormTextarea(props) {
   const { errors, register } = useFormContext()
 
   return (
-    <React.Fragment>
+    <>
       <Textarea ref={register} {...props}>
         {errors?.[props.field] ? (
           <p className="mt-2 text-red-700 text-sm">
@@ -168,7 +168,7 @@ function FormTextarea(props) {
           </p>
         ) : null}
       </Textarea>
-    </React.Fragment>
+    </>
   )
 }
 

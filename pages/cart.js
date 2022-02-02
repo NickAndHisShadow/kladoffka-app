@@ -1,9 +1,7 @@
-import { Fragment } from "react";
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useCart } from 'react-use-cart'
-import { sendForm, send, init } from 'emailjs-com'
 
 import Button from '../components/ui/button'
 import {
@@ -41,24 +39,14 @@ function Cart() {
   const incrementItemQuantity = (item) =>
     updateItemQuantity(item.id, item.quantity + 1)
 
-
-
-  var templateParams = {
-    name: 'James',
-    surname: 'Adams',
-    email: 'ergaqerg@rfve.rvf'
-  };
-
   const handleClick = () => {
     console.log('Click')
   }
 
-
-
   if (isEmpty) return <p>Ваш кошик порожній</p>
 
   return (
-    <Fragment>
+    <>
       <SEO title="Cart" />
       {items.map((item) => {
         return (
@@ -147,7 +135,7 @@ function Cart() {
           </Button>
 
       </div>
-    </Fragment>
+    </>
   )
 }
 

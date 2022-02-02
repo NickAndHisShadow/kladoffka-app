@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import getAllProducts from '../../lib/get-all-products'
 import getProductBySlug from '../../lib/get-product-slug'
 import getPageData from '../../lib/get-page-data'
@@ -8,10 +6,10 @@ import SEO from '../../components/seo'
 
 function ProductPage({ product }) {
   return (
-    <React.Fragment>
+    <>
       <SEO title={product.name} {...product} />
       <ProductPageUI product={product} />
-    </React.Fragment>
+    </>
   )
 }
 
