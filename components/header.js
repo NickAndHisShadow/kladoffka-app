@@ -11,7 +11,6 @@ function Header({pages = []}) {
     const activeCurrency = {code: 'UAH'}
 
     const [ activeNav, setActiveNav] = useState(true)
-
     const handleClick = () => {
         setActiveNav(!activeNav)
     }
