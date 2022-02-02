@@ -2,8 +2,6 @@ import Link from 'next/link'
 import {useCart} from 'react-use-cart'
 import {formatCurrencyValue} from '../utils/format-currency-value'
 import { useState } from "react";
-
-//import {Logo} from '../public/svgs'
 import {ShoppingCartIcon} from '../public/svgs'
 import {CallButton} from "./ui/callButton";
 
@@ -41,7 +39,7 @@ function Header({pages = []}) {
                     <ul className={`${ activeNav ? '' : 'hidden' } md:flex-grow items-start order-2 w-full md:w-auto md:order-first`}>
                         <li key="Головна" className="block my-4 md:inline-block md:my-0">
                             <Link href="/">
-                                <a className="text-lightgray hover:text-slategray hover:bg-gainsboro rounded-full py-2 px-3 font-medium" onClick={handleClick}>
+                                <a className="text-lightgray hover:text-slategray hover:bg-gainsboro rounded-full py-2 px-3 font-medium">
                                     Головна
                                 </a>
                             </Link>
@@ -52,7 +50,7 @@ function Header({pages = []}) {
                             className="block my-4 md:inline-block md:my-0"
                         >
                             <Link href={`/${page.type.toLowerCase()}/${page.slug}`}>
-                                <a className="text-lightgray hover:text-slategray hover:bg-gainsboro rounded-full py-2 px-3 font-medium" onClick={handleClick}>
+                                <a className="text-lightgray hover:text-slategray hover:bg-gainsboro rounded-full py-2 px-3 font-medium">
                                     {page.name}
                                 </a>
                             </Link>

@@ -3,13 +3,11 @@ import { useRouter } from 'next/router'
 import Image from 'next/image'
 import { useCart } from 'react-use-cart'
 
-import Button from './ui/button'
 import { ChevronDownSmallIcon } from '../public/svgs'
 import { formatCurrencyValue } from '../utils/format-currency-value'
 import Markdown from 'markdown-to-jsx';
 import Link from "next/link";
 import {CallButton} from "./ui/callButton";
-// import ProductReviews from '../components/product-reviews'
 
 function ProductPageUI({ product }) {
   console.log(product.description)
@@ -17,21 +15,7 @@ function ProductPageUI({ product }) {
   const router = useRouter()
   const activeCurrency = {code: 'UAH'}
   const [variantQuantity, setVariantQuantity] = React.useState(1)
-  // const [activeVariantId, setActiveVariantId] = React.useState(
-  //   router.query.variantId || product.variants[0].id
-  // )
-
-  // React.useEffect(() => {
-  //   const url = `/products/${product.slug}?variant=${activeVariantId}`
-  //
-  //   router.replace(url, url, { shallow: true })
-  // }, [activeVariantId])
-
-  // const activeVariant = product.variants.find(
-  //   (variant) => variant.id === activeVariantId
-  // )
   const updateQuantity = (event) => setVariantQuantity(Number(event.target.value))
-  // const updateVariant = (event) => setActiveVariantId(event.target.value)
 
   const [primaryImage] = product.images
 
@@ -152,8 +136,7 @@ function ProductPageUI({ product }) {
             </div>
           </div>
         </div>
-        <Button onClick={addToCart}>До кошику</Button>
-        <p className="my-3">Або замовити по телефону</p>
+        <p className="my-1.5">Замовити по телефону</p>
         <Link href="tel:0674964002">
           <CallButton/>
         </Link>
@@ -164,7 +147,6 @@ function ProductPageUI({ product }) {
           <Markdown className="leading-loose text-lightgray">{product.description.markdown}</Markdown>
         </div>
 
-        {/*<ProductReviews product={product} />*/}
       </div>
     </div>
   )

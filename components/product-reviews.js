@@ -1,13 +1,13 @@
 import useSWR from 'swr'
 import cc from 'classcat'
-
+import { useState } from "react";
 import { ChevronDownSmallIcon } from '../public/svgs'
 import graphcmsClient from '../lib/graphcms-client'
 import { ProductReviewsQuery } from '../graphql/queries/reviews'
 import ProductReviewForm from '../components/product-review-form'
 
 function ProductReviews({ product }) {
-  const [isExpanded, setIsExpanded] = React.useState(true)
+  const [isExpanded, setIsExpanded] = useState(true)
 
   const { data, error } = useSWR(
     [ProductReviewsQuery, product.id],
