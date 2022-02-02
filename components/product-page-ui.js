@@ -5,7 +5,6 @@ import { ChevronDownSmallIcon } from '../public/svgs'
 import { formatCurrencyValue } from '../utils/format-currency-value'
 import Markdown from 'markdown-to-jsx';
 import Link from "next/link";
-import {CallButton} from "./ui/callButton";
 
 function ProductPageUI({ product }) {
   console.log(product.description)
@@ -74,7 +73,9 @@ function ProductPageUI({ product }) {
         </div>
         <p className="my-1.5">Замовити по телефону</p>
         <Link href="tel:0674964002">
-          <CallButton/>
+          <button className="flex border-2 border-green-600 rounded-lg py-2 px-3 font-semibold text-green-600 transition-colors hover:bg-green-600 hover:text-white">
+            Зателефонувати
+          </button>
         </Link>
         <div className="mb-6">
           <h3 className="block text-xl font-bold tracking-widest uppercase text-center mt-4 mb-2 text-slategray">

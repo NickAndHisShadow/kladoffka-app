@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { useState } from "react";
-import {CallButton} from "./ui/callButton";
 
 function Header({pages = []}) {
     const [ activeNav, setActiveNav] = useState(true)
@@ -53,7 +52,9 @@ function Header({pages = []}) {
 
                     <div id="button-wrapper" className="lg:mr-6">
                         <Link href="tel:0674964002">
-                            <CallButton/>
+                            <button className="flex border-2 border-green-600 rounded-2xl py-2 px-3 font-semibold text-green-600 transition-colors hover:bg-green-600 hover:text-white">
+                                Зателефонувати
+                            </button>
                         </Link>
                     </div>
 
