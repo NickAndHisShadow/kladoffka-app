@@ -19,9 +19,9 @@ function ProductPageUI({ product }) {
         <div className="w-full overflow-hidden relative bg-gainsboro rounded-lg">
           <Image
             src={primaryImage.url}
-            height={primaryImage.height}
-            width={primaryImage.width}
-            quality={45}
+            height={primaryImage.height/2}
+            width={primaryImage.width/2}
+            quality={60}
             alt={product.name}
             title={product.name}
           />
