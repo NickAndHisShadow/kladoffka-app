@@ -10,6 +10,7 @@ function ProductCard({ id, images, name, price, slug }) {
       let newName = name.substr(0, 80)
       return newName.slice(0, newName.lastIndexOf(' ')) + '...'
     }
+    else return name
   }
   const [primaryImage] = images
 
