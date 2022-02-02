@@ -13,12 +13,8 @@ function ProductCard({ id, images, name, price, slug }) {
   }
   const [primaryImage] = images
 
-  function handleMouseOver() {
-
-  }
-
   return (
-    <article className="unselectable" key={id} onMouseOver={handleMouseOver}>
+    <article className="unselectable" key={id}>
       <Link href={`/products/${slug}`}>
         <a className="group no-underline w-full h-full flex">
           <div className="bg-gray-50 rounded-lg cursor-pointer w-full overflow-hidden relative px-3 py-6 md:px-6">

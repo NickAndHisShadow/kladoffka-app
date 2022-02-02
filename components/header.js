@@ -1,10 +1,21 @@
 import Link from 'next/link'
-import { useState } from "react";
+import { useState, useEffect } from "react"
+import useWindowDimensions from "../hooks/use-window-dimensions";
 
 function Header({pages = []}) {
-    const [ activeNav, setActiveNav] = useState(true)
+    const { height, width } = useWindowDimensions()
+    useEffect(() => {
+        (width < 768) ? setActiveNav(false) : setActiveNav(true)
+    }, [width]);
+
+    const [ activeNav, setActiveNav] = useState(null)
+
+
+
     const handleClick = () => {
-        setActiveNav(!activeNav)
+        if (width < 768) {
+            setActiveNav(!activeNav)
+        }
     }
 
     return (
@@ -29,7 +40,7 @@ function Header({pages = []}) {
                     </button>
 
                     <ul className={`${ activeNav ? '' : 'hidden' } md:flex-grow items-start order-2 w-full md:w-auto md:order-first`}>
-                        <li key="Головна" className="block my-4 md:inline-block md:my-0">
+                        <li key="Головна" className="block my-4 md:inline-block md:my-0" onClick={handleClick}>
                             <Link href="/">
                                 <a className="text-lightgray hover:text-slategray hover:bg-gainsboro rounded-full py-2 px-3 font-medium">
                                     Головна
@@ -40,6 +51,7 @@ function Header({pages = []}) {
                         <li
                             key={page.id}
                             className="block my-4 md:inline-block md:my-0"
+                            onClick={handleClick}
                         >
                             <Link href={`/${page.type.toLowerCase()}/${page.slug}`}>
                                 <a className="text-lightgray hover:text-slategray hover:bg-gainsboro rounded-full py-2 px-3 font-medium">
