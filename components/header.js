@@ -62,13 +62,34 @@ function Header({pages = []}) {
                     ))) : null}
                     </ul>
 
-                    <div id="button-wrapper" className="lg:mr-6">
-                        <Link href="tel:0674964002">
-                            <button className="flex border-2 border-green-600 rounded-2xl py-2 px-3 font-semibold text-green-600 transition-colors hover:bg-green-600 hover:text-white">
-                                Зателефонувати
-                            </button>
-                        </Link>
+                    <div id="call-wrapper" className="lg:mr-6">
+                        <div className="grid grid-cols-1 lg:grid-cols-3">
+                            <div className="col-span-2 grid grid-rows-2 grid-flow-col gap-x-1.5 lg:gap-x-6">
+                                <div className="row-span-3">
+                                    <Link href="tel:0674964002">
+                                        <button className="flex border-2 border-green-600 py-2 px-1.5 rounded-xl font-semibold text-lg text-green-600 transition-colors hover:bg-green-600 hover:text-white">
+                                            Зателефонувати
+                                        </button>
+                                    </Link>
+                                </div>
+
+                                <div className="col-span-1">
+                                    <Link href="tel:0674964002">
+                                        <span>+380674964002</span>
+                                    </Link>
+                                </div>
+
+                                <div className="col-span-1">
+                                    <Link href="tel:0661754266">
+                                        <span>+380661754266</span>
+                                    </Link>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
+
+
 
                 </nav>
         </header>

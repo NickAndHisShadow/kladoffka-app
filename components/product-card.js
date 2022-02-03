@@ -12,7 +12,7 @@ function ProductCard({ id, images, name, price, slug }) {
     }
     else return name
   }
-  const [primaryImage] = images
+  const primaryImage = images[0]
 
   return (
     <article className="unselectable" key={id}>

@@ -1,31 +1,53 @@
 import * as React from 'react'
 import Image from 'next/image'
 
+import Slider from "react-slick";
 import { ChevronDownSmallIcon } from '../public/svgs'
 import { formatCurrencyValue } from '../utils/format-currency-value'
 import Markdown from 'markdown-to-jsx';
 import Link from "next/link";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 function ProductPageUI({ product }) {
-  console.log(product.description)
   const activeCurrency = {code: 'UAH'}
 
-  const [primaryImage] = product.images
+  const settings = {
+    dots: false,
+    infinite: true,
+    swipeToSlide: true,
+    speed: 500,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  }
 
   return (
     <div className="lg:flex -mx-6">
       <div className="mb-8 px-6 md:mb-0 lg:w-1/2">
-        <div className="w-full overflow-hidden relative bg-gainsboro rounded-lg">
-          <Image
-            src={primaryImage.url}
-            height={primaryImage.height/2}
-            width={primaryImage.width/2}
-            quality={70}
-            alt={product.name}
-            title={product.name}
-          />
-        </div>
+        <Slider {...settings}>
+          {product.images.map(image => {
+            return (
+                    <div className="w-full overflow-hidden relative bg-gainsboro" key={image.id}>
+                      <Image
+
+                          src={image.url}
+                          height={image.height/2}
+                          width={image.width/2}
+                          quality={70}
+                          alt={product.name}
+                          title={product.name}
+                      />
+                    </div>
+                )
+          })}
+
+        </Slider>
       </div>
+
       <div className="px-6 md:py-3 lg:w-1/2">
         <h1 className="font-bold text-xl md:text-5xl mb-3 text-primary leading-tight">
           {product.name}
@@ -71,13 +93,34 @@ function ProductPageUI({ product }) {
               </div>
           ) : null}
         </div>
+
         <p className="my-1.5">Замовити по телефону</p>
-        <Link href="tel:0674964002">
-          <button className="flex border-2 border-green-600 rounded-lg py-2 px-3 font-semibold text-green-600 transition-colors hover:bg-green-600 hover:text-white">
-            Зателефонувати
-          </button>
-        </Link>
-        <div className="mb-6">
+        <div className="grid grid-cols-3">
+          <div className="col-span-2 grid grid-rows-2 grid-flow-col">
+            <div className="row-span-3">
+              <Link href="tel:0674964002">
+                <button className="flex border-2 border-green-600 py-2 px-2.5 rounded-xl font-semibold text-lg text-green-600 transition-colors hover:bg-green-600 hover:text-white">
+                  Зателефонувати
+                </button>
+              </Link>
+            </div>
+
+            <div className="col-span-1">
+              <Link href="tel:0674964002">
+                <span>+380674964002</span>
+              </Link>
+            </div>
+
+            <div className="col-span-1">
+              <Link href="tel:0661754266">
+                <span>+380661754266</span>
+              </Link>
+            </div>
+
+          </div>
+        </div>
+
+        <div className="mb-6 mt-24">
           <h3 className="block text-xl font-bold tracking-widest uppercase text-center mt-4 mb-2 text-slategray">
             Опис
           </h3>
