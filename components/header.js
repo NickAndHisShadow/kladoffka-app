@@ -78,7 +78,7 @@ function Header({pages = []}) {
                                 </div>
 
                                 <div className="col-span-1 text-sm lg:text-base">
-                                    <Link href="tel:0661754266">+380661754266</Link>
+                                    <Link href="tel:0933827605">+380933827605</Link>
                                 </div>
 
                             </div>

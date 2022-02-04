@@ -112,8 +112,8 @@ function ProductPageUI({ product }) {
             </div>
 
             <div className="col-span-1">
-              <Link href="tel:0661754266">
-                <span>+380661754266</span>
+              <Link href="tel:0933827605">
+                <span>+380933827605</span>
               </Link>
             </div>
 
