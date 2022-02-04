@@ -67,22 +67,18 @@ function Header({pages = []}) {
                             <div className="col-span-2 grid grid-rows-2 grid-flow-col gap-x-1.5 lg:gap-x-6">
                                 <div className="row-span-3">
                                     <Link href="tel:0674964002">
-                                        <button className="flex border-2 border-green-600 py-2 px-1.5 rounded-xl font-semibold text-lg text-green-600 transition-colors hover:bg-green-600 hover:text-white">
+                                        <button className="flex border-2 border-green-600 py-1.5 md:py-2 px-1.5 rounded-xl font-semibold sm:text-base lg:text-lg text-green-600 transition-colors hover:bg-green-600 hover:text-white">
                                             Зателефонувати
                                         </button>
                                     </Link>
                                 </div>
 
-                                <div className="col-span-1">
-                                    <Link href="tel:0674964002">
-                                        <span>+380674964002</span>
-                                    </Link>
+                                <div className="col-span-1 text-sm lg:text-base">
+                                    <Link href="tel:0674964002">+380674964002</Link>
                                 </div>
 
-                                <div className="col-span-1">
-                                    <Link href="tel:0661754266">
-                                        <span>+380661754266</span>
-                                    </Link>
+                                <div className="col-span-1 text-sm lg:text-base">
+                                    <Link href="tel:0661754266">+380661754266</Link>
                                 </div>
 
                             </div>

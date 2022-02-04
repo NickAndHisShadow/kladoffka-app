@@ -27,7 +27,7 @@ function ProductPageUI({ product }) {
 
   return (
     <div className="lg:flex -mx-6">
-      <div className="mb-8 px-6 md:mb-0 lg:w-1/2">
+      <div className="mb-8 sm:px-0 md:px-6 md:mb-0 lg:w-1/2">
         <Slider {...settings}>
           {product.images.map(image => {
             return (
@@ -95,7 +95,7 @@ function ProductPageUI({ product }) {
         </div>
 
         <p className="my-1.5">Замовити по телефону</p>
-        <div className="grid grid-cols-3">
+        <div className="grid sm:grid-cols-4 lg:grid-cols-3">
           <div className="col-span-2 grid grid-rows-2 grid-flow-col">
             <div className="row-span-3">
               <Link href="tel:0674964002">
