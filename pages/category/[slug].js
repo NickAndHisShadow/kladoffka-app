@@ -5,6 +5,7 @@ import getCategoryBySlug from '../../lib/get-category-slug'
 import getPageData from '../../lib/get-page-data'
 import ProductGrid from '../../components/product-grid'
 import SEO from '../../components/seo'
+import IndexPage from "../index";
 
 function CategoryPage({ category }) {
   return (
@@ -14,6 +15,8 @@ function CategoryPage({ category }) {
     </>
   )
 }
+
+CategoryPage.layout = "App"
 
 export async function getStaticPaths() {
   let paths = []

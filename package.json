@@ -10,7 +10,6 @@
   "dependencies": {
     "@hookform/resolvers": "^2.8.3",
     "classcat": "^5.0.3",
-    "classnames": "^2.3.1",
     "graphql": "^16.2.0",
     "graphql-request": "^3.6.1",
     "markdown-to-jsx": "^7.1.6",

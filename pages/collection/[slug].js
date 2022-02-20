@@ -13,6 +13,8 @@ function CollectionPage({ collection }) {
   )
 }
 
+CollectionPage.layout = "App"
+
 export async function getStaticPaths() {
   let paths = []
 

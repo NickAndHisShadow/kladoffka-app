@@ -1,10 +1,10 @@
 import { DefaultSeo } from 'next-seo'
 
-import { defaultSeo } from '../next-seo.config'
-import Footer from './footer'
-import Header from './header'
+import { defaultSeo } from '../../next-seo.config'
+import Footer from '../footer'
+import Header from '../header'
 
-function Layout({ children, footer, navigation }) {
+function AppLayout({ children, footer, navigation }) {
     return (
         <>
             <DefaultSeo {...defaultSeo} />
@@ -15,4 +15,4 @@ function Layout({ children, footer, navigation }) {
     )
 }
 
-export default Layout
+export default AppLayout

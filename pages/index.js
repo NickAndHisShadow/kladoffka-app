@@ -6,6 +6,8 @@ function IndexPage({ products }) {
     return <ProductGrid products={products} />
 }
 
+IndexPage.layout = "App"
+
 export async function getStaticProps() {
     const pageData = await getPageData()
     const { products } = await getAllProducts()

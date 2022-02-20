@@ -59,6 +59,8 @@ function ProductPage({ product }) {
   )
 }
 
+ProductPage.layout = "App"
+
 export async function getStaticPaths() {
   let paths = []
 
